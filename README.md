@@ -49,9 +49,9 @@ Ejecuta los pasos administrativos en un servidor Ubuntu nuevo. Puedes abrir una 
 
 ### 1. Obtener el código
 
-Clona el repositorio Open Source desde la URL oficial que publique el proyecto. No uses credenciales de producción en esta instalación.
+Clona el repositorio público oficial de NetCore NOC: No uses credenciales de producción en esta instalación.
 
-    sudo git clone <URL_PUBLICA_DEL_REPOSITORIO> /opt/netcore-noc
+    sudo git clone https://github.com/mrsmith152890/Netcore-noc.git /opt/netcore-noc
     sudo adduser --system --group --no-create-home --home /opt/netcore-noc netcore
     sudo chown -R root:netcore /opt/netcore-noc
     sudo chmod -R g+rX /opt/netcore-noc

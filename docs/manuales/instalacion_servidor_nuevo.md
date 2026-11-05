@@ -20,9 +20,9 @@ Revisa la procedencia del script desde https://github.com/nodesource/distributio
 
 ## 2. Obtener código limpio
 
-Reemplaza el URL de ejemplo por el repositorio oficial cuando esté publicado:
+Clona el repositorio público oficial de NetCore NOC:
 
-    sudo git clone https://github.com/OWNER/REPOSITORY.git /opt/netcore-noc
+    sudo git clone https://github.com/mrsmith152890/Netcore-noc.git /opt/netcore-noc
     sudo adduser --system --group --no-create-home --home /opt/netcore-noc netcore
     sudo chown -R root:netcore /opt/netcore-noc
     sudo chmod -R g+rX /opt/netcore-noc
