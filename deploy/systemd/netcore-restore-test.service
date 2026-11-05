@@ -1,0 +1,9 @@
+[Unit]
+Description=NetCore NOC - prueba de restauración de la última copia
+After=postgresql.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/netcore-noc/deploy/scripts/restore-test.sh
+Nice=10
+IOSchedulingClass=idle

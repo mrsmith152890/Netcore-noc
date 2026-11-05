@@ -1,0 +1,9 @@
+[Unit]
+Description=Prueba semanal de restauración de NetCore NOC
+
+[Timer]
+OnCalendar=Sun *-*-* 04:30:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

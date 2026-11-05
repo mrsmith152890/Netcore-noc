@@ -1,0 +1,9 @@
+[Unit]
+Description=NetCore NOC - copia de seguridad
+After=postgresql.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/netcore-noc/deploy/scripts/backup.sh
+Nice=10
+IOSchedulingClass=idle

@@ -1,0 +1,36 @@
+[Unit]
+Description=NetCore NOC - poller SNMP
+After=network-online.target postgresql.service
+Wants=network-online.target postgresql.service
+PartOf=netcore.target
+
+[Service]
+Type=simple
+User=netcore
+Group=netcore
+WorkingDirectory=/opt/netcore-noc/backend
+ExecStart=/opt/netcore-noc/backend/.venv/bin/python -m app.workers.snmp_poller
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=HOME=/tmp
+Environment=SNMP_PERSISTENT_DIR=/tmp
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX AF_NETLINK
+LockPersonality=true
+SystemCallArchitectures=native
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=netcore.target

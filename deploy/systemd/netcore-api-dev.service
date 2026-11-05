@@ -1,0 +1,39 @@
+[Unit]
+Description=NetCore NOC - API de desarrollo
+After=network-online.target postgresql.service
+Wants=network-online.target postgresql.service
+PartOf=netcore.target
+
+[Service]
+Type=simple
+User=netcore
+Group=netcore
+WorkingDirectory=/opt/netcore-noc/backend
+ExecStart=/opt/netcore-noc/backend/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8001 --reload
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=HOME=/tmp
+Environment=SNMP_PERSISTENT_DIR=/tmp
+Environment=NOC_COOKIE_SECURE=false
+Environment=NOC_ENVIRONMENT=dev
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictNamespaces=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX AF_NETLINK
+LockPersonality=true
+SystemCallArchitectures=native
+CapabilityBoundingSet=CAP_NET_RAW
+AmbientCapabilities=CAP_NET_RAW
+
+[Install]
+WantedBy=netcore.target

@@ -1,0 +1,40 @@
+# Python
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Frontend
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+coverage/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Runtime data and generated files
+*.log
+*.pid
+*.bak
+*.bak-*
+*.sqlite
+*.sqlite3
+*.db
+*.dump
+*.enc
+backups/
+uploads/
+instance/

@@ -1,0 +1,18 @@
+[Unit]
+Description=NetCore NOC - retención de históricos
+After=postgresql.service
+
+[Service]
+Type=oneshot
+User=netcore
+Group=netcore
+WorkingDirectory=/opt/netcore-noc/backend
+ExecStart=/opt/netcore-noc/backend/.venv/bin/python -m app.maintenance
+Environment=PYTHONDONTWRITEBYTECODE=1
+Nice=10
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+CapabilityBoundingSet=
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
